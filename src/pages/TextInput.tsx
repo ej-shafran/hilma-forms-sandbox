@@ -19,6 +19,7 @@ const textInputSchema = yup.object({
   rounded: yup.boolean(),
   maxLengthActive: yup.boolean(),
   isLoading: yup.boolean(),
+  disabled: yup.boolean(),
 });
 
 type TextInputValues = yup.InferType<typeof textInputSchema>;
@@ -36,6 +37,7 @@ const TextInputForm: React.FC = () => {
           rounded={formValues.rounded}
           isLoading={formValues.isLoading}
           maxLength={formValues.maxLengthActive ? 50 : undefined}
+          disabled={formValues.disabled}
         />
         <FormSubmitButton>הגש</FormSubmitButton>
       </Stack>
@@ -43,6 +45,7 @@ const TextInputForm: React.FC = () => {
       <FormCheckbox name="rounded" label="מעוגל (Rounded)?" />
       <FormCheckbox name="maxLengthActive" label="אורך מקסימלי (Max Length)?" />
       <FormCheckbox name="isLoading" label="בטעינה (Loading)?" />
+      <FormCheckbox name="disabled" label="כבוי (Disabled)?" />
     </>
   );
 };
@@ -58,6 +61,7 @@ const TextInputDemo: React.FC = () => {
         rounded: false,
         maxLengthActive: false,
         isLoading: false,
+        disabled: false,
       }}
       onSubmit={() => {
         showAlert("יפה מאוד!", "success");

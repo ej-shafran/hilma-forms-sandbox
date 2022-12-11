@@ -15,6 +15,7 @@ const selectSchema = yup.object({
 
   rounded: yup.boolean(),
   noneOptionActive: yup.boolean(),
+  disabled: yup.boolean(),
 });
 
 type SelectValues = yup.InferType<typeof selectSchema>;
@@ -34,12 +35,14 @@ const SelectForm: React.FC = () => {
           label="סלקט:"
           rounded={formValues.rounded}
           noneOption={formValues.noneOptionActive ? "ריק" : undefined}
+          disabled={formValues.disabled}
         />
         <FormSubmitButton>הגש</FormSubmitButton>
       </Stack>
 
       <FormCheckbox name="rounded" label="מעוגל (Rounded)?" />
       <FormCheckbox name="noneOptionActive" label="אופציה ריקה?" />
+      <FormCheckbox name="disabled" label="כבוי (Disabled)?" />
     </>
   );
 };

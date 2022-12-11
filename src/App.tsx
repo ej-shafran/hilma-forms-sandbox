@@ -5,6 +5,7 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import TextInputDemo from "./pages/TextInput";
 import SelectDemo from "./pages/Select";
+import CheckboxDemo from "./pages/Checkbox";
 
 const NLink: React.FC<{ to: string; children?: React.ReactNode }> = ({
   to,
@@ -53,7 +54,7 @@ function App() {
           <Route path="component">
             <Route path="text-input" element={<TextInputDemo />} />
             <Route path="select" element={<SelectDemo />} />
-            <Route path="checkbox" element={<div>Checkbox</div>} />
+            <Route path="checkbox" element={<CheckboxDemo />} />
             <Route path="radio-group" element={<div>Radio Group</div>} />
             <Route path="toggle-group" element={<div>Toggle Group</div>} />
             <Route path="switch" element={<div>Switch</div>} />
