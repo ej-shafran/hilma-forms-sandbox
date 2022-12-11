@@ -3,13 +3,15 @@ import {
   FormProvider,
   FormRadioGroup,
   FormSelect,
+  FormSubmitButton,
   useAlert,
   useForm,
 } from "@hilma/forms";
 import * as yup from "yup";
+import Stack from "@mui/material/Stack";
 
 const radioGroupSchema = yup.object({
-  radioGroup: yup.string(),
+  radioGroup: yup.string().oneOf(["0", "1"], "תבחרו באופציה 1 או 2"),
 
   disabledOption: yup.number().optional(),
 });
@@ -22,17 +24,20 @@ const RadioGroupForm: React.FC = () => {
 
   return (
     <>
-      <FormRadioGroup
-        name="radioGroup"
-        label="קבוצת רדיו"
-        options={Array(4)
-          .fill(0)
-          .map((_, i) => ({
-            value: i.toString(),
-            content: `אופציה ${i + 1}`,
-            disabled: formValues.disabledOption === i,
-          }))}
-      />
+      <Stack flexDirection="row" gap={3} alignItems="center">
+        <FormRadioGroup
+          name="radioGroup"
+          label="קבוצת רדיו"
+          options={Array(4)
+            .fill(0)
+            .map((_, i) => ({
+              value: i.toString(),
+              content: `אופציה ${i + 1}`,
+              disabled: formValues.disabledOption === i,
+            }))}
+        />
+        <FormSubmitButton>הגש</FormSubmitButton>
+      </Stack>
 
       <FormSelect
         name="disabledOption"

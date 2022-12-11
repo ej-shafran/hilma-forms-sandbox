@@ -7,6 +7,7 @@ import TextInputDemo from "./pages/TextInput";
 import SelectDemo from "./pages/Select";
 import CheckboxDemo from "./pages/Checkbox";
 import RadioGroupDemo from "./pages/RadioGroup";
+import ToggleGroupDemo from "./pages/ToggleGroup";
 
 const NLink: React.FC<{ to: string; children?: React.ReactNode }> = ({
   to,
@@ -57,7 +58,7 @@ function App() {
             <Route path="select" element={<SelectDemo />} />
             <Route path="checkbox" element={<CheckboxDemo />} />
             <Route path="radio-group" element={<RadioGroupDemo />} />
-            <Route path="toggle-group" element={<div>Toggle Group</div>} />
+            <Route path="toggle-group" element={<ToggleGroupDemo />} />
             <Route path="switch" element={<div>Switch</div>} />
           </Route>
         </Routes>
