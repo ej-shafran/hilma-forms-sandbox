@@ -1,9 +1,20 @@
 import React from "react";
-import { FormCheckbox, FormProvider, FormTextInput, useAlert, useForm } from "@hilma/forms";
+import {
+  FormCheckbox,
+  FormProvider,
+  FormSubmitButton,
+  FormTextInput,
+  useAlert,
+  useForm,
+} from "@hilma/forms";
 import * as yup from "yup";
+import Stack from "@mui/material/Stack";
 
 const textInputSchema = yup.object({
-  textInput: yup.string().equals(["וואו!"], "תקלידו 'וואו!' כדי שלא יהיה Error"),
+  textInput: yup
+    .string()
+    .required("תמלאו את האינפוט")
+    .equals(["וואו!"], "תקלידו 'וואו!'"),
 
   rounded: yup.boolean(),
   maxLengthActive: yup.boolean(),
@@ -18,13 +29,16 @@ const TextInputForm: React.FC = () => {
 
   return (
     <>
-      <FormTextInput
-        name="textInput"
-        label="אינפוט מסוג טקסט:"
-        rounded={formValues.rounded}
-        isLoading={formValues.isLoading}
-        maxLength={formValues.maxLengthActive ? 50 : undefined}
-      />
+      <Stack flexDirection="row" alignItems="center" gap={3}>
+        <FormTextInput
+          name="textInput"
+          label="אינפוט מסוג טקסט:"
+          rounded={formValues.rounded}
+          isLoading={formValues.isLoading}
+          maxLength={formValues.maxLengthActive ? 50 : undefined}
+        />
+        <FormSubmitButton>הגש</FormSubmitButton>
+      </Stack>
 
       <FormCheckbox name="rounded" label="מעוגל (Rounded)?" />
       <FormCheckbox name="maxLengthActive" label="אורך מקסימלי (Max Length)?" />
@@ -46,7 +60,7 @@ const TextInputDemo: React.FC = () => {
         isLoading: false,
       }}
       onSubmit={() => {
-        showAlert("הדמו הזה הוא רק למראה", "warning");
+        showAlert("יפה מאוד!", "success");
       }}
       validationSchema={textInputSchema}
     >

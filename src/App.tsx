@@ -4,8 +4,12 @@ import AppBar from "@mui/material/AppBar";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import TextInputDemo from "./pages/TextInput";
+import SelectDemo from "./pages/Select";
 
-const NLink: React.FC<{ to: string; children?: React.ReactNode }> = ({ to, children }) => (
+const NLink: React.FC<{ to: string; children?: React.ReactNode }> = ({
+  to,
+  children,
+}) => (
   <Button>
     <Link
       to={to}
@@ -48,7 +52,7 @@ function App() {
 
           <Route path="component">
             <Route path="text-input" element={<TextInputDemo />} />
-            <Route path="select" element={<div>Select</div>} />
+            <Route path="select" element={<SelectDemo />} />
             <Route path="checkbox" element={<div>Checkbox</div>} />
             <Route path="radio-group" element={<div>Radio Group</div>} />
             <Route path="toggle-group" element={<div>Toggle Group</div>} />
