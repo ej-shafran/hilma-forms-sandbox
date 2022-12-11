@@ -27,6 +27,7 @@ const ToggleGroupForm: React.FC = () => {
       <Stack flexDirection="row" gap={3} alignItems="center">
         <FormToggleGroup
           name="toggleGroup"
+          label="קבוצת טוגל"
           options={[
             { value: "apple", content: "תפוח" },
             { value: "banana", content: "בננה" },

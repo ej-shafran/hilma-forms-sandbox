@@ -1,5 +1,12 @@
 import React from "react";
-import { BrowserRouter, Routes, Route, NavLink, Link } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  NavLink,
+  Link,
+  useNavigate,
+} from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
@@ -8,22 +15,25 @@ import SelectDemo from "./pages/Select";
 import CheckboxDemo from "./pages/Checkbox";
 import RadioGroupDemo from "./pages/RadioGroup";
 import ToggleGroupDemo from "./pages/ToggleGroup";
+import SwitchDemo from "./pages/Switch";
 
 const NLink: React.FC<{ to: string; children?: React.ReactNode }> = ({
   to,
   children,
-}) => (
-  <Button>
-    <Link
-      to={to}
-      style={{
-        color: "white",
-      }}
+}) => {
+  const navigate = useNavigate();
+  return (
+    <Button
+      onClick={() => navigate(to)}
+      sx={(theme) => ({
+        color: theme.palette.primary.contrastText,
+        flex: 1,
+      })}
     >
       {children}
-    </Link>
-  </Button>
-);
+    </Button>
+  );
+};
 
 function App() {
   return (
@@ -59,7 +69,7 @@ function App() {
             <Route path="checkbox" element={<CheckboxDemo />} />
             <Route path="radio-group" element={<RadioGroupDemo />} />
             <Route path="toggle-group" element={<ToggleGroupDemo />} />
-            <Route path="switch" element={<div>Switch</div>} />
+            <Route path="switch" element={<SwitchDemo />} />
           </Route>
         </Routes>
       </BrowserRouter>
