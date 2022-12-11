@@ -16,6 +16,7 @@ import CheckboxDemo from "./pages/Checkbox";
 import RadioGroupDemo from "./pages/RadioGroup";
 import ToggleGroupDemo from "./pages/ToggleGroup";
 import SwitchDemo from "./pages/Switch";
+import FullForm from "./pages/FullForm";
 
 const NLink: React.FC<{ to: string; children?: React.ReactNode }> = ({
   to,
@@ -61,7 +62,7 @@ function App() {
         </AppBar>
 
         <Routes>
-          <Route path="full-form" element={<div>Full Form</div>} />
+          <Route path="full-form" element={<FullForm />} />
 
           <Route path="component">
             <Route path="text-input" element={<TextInputDemo />} />
