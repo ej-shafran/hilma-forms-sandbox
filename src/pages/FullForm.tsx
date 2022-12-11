@@ -10,7 +10,6 @@ import {
   FormToggleGroup,
   useAlert,
 } from "@hilma/forms";
-import * as yup from "yup";
 
 const options = Array(4)
   .fill(0)
