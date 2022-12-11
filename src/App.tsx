@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  NavLink,
-  Link,
-  useNavigate,
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
